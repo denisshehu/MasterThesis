@@ -22,9 +22,6 @@ def _execute(point_cloud, neighborhood_size, maximum_dimension, n_steps, filenam
 
     keep = 'k' if keep_terminal_open else 'c'
     n = points.shape[0]
-    # command = f'start cmd /{keep} \"cd \"{tardis_directory}\" & \"{activate_path}\" & ' \
-    #           f'python cli.py \"{input_path}\" -p \"{query_path}\" -k {neighborhood_size} -d {maximum_dimension} ' \
-    #           f'--num-steps {n_steps} -b {n} > \"{output_path}\"\"'
     command = f'start cmd /{keep} \"cd \"{tardis_directory}\" & \"{activate_path}\" & ' \
               f'python cli.py \"{input_path}\" -k {neighborhood_size} -d {maximum_dimension} ' \
               f'--num-steps {n_steps} -b {n} > \"{output_path}\"\"'

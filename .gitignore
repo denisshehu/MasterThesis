@@ -1,2 +1,13 @@
 .idea/
+.vscode/
+.venv/
+__pycache__/
 *.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Pre-trained embeddings (several GB) and generated output
+embeddings/*
+!embeddings/.gitkeep
+results/*
+!results/.gitkeep

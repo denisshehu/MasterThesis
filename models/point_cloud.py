@@ -53,29 +53,13 @@ class PointCloud:
         queries = [Query(identifier, point, word, word_type) for identifier, point, word, word_type in
                    zip(identifiers, query_points, keys, types)]
 
-        # filename_prefix = 'glove_filtered'
-        # with open(os.path.join(results_directory, f'{filename_prefix}_vocabulary.txt'), 'w') as file:
-        #     file.write('')
-        # with open(os.path.join(results_directory, f'{filename_prefix}_by_key.txt'), 'w') as file:
-        #     file.write('')
-
         point_keys = set()
-        # for point in query_points:
         for i in range(len(query_points)):
             point = query_points[i]
             most_similar = embeddings.similar_by_vector(vector=point, topn=(neighborhood_size + 1))
-            # point_keys.update([key for key, similarity in most_similar])
             most_similar_keys = [key for key, similarity in most_similar]
             point_keys.update(most_similar_keys)
-            # with open(os.path.join(results_directory, f'{filename_prefix}_by_key.txt'), 'a',
-            #           encoding='utf-8') as file:
-            #     file.write(f'{keys[i]}: {most_similar_keys}\n\n')
         points = np.array([embeddings[key] for key in point_keys])
-
-        # for key in sorted(point_keys):
-        #     with open(os.path.join(results_directory, f'{filename_prefix}_vocabulary.txt'), 'a',
-        #               encoding='utf-8') as file:
-        #         file.write(f'{key}\n')
 
         self._points = points
         self._tree = KDTree(points)
@@ -84,10 +68,6 @@ class PointCloud:
     @property
     def points(self):
         return self._points
-
-    # @property
-    # def tree(self):
-    #     return self._tree
 
     @property
     def queries(self):
@@ -120,7 +100,6 @@ class PointCloud:
         return neighborhoods
 
     def _get_annulus(self, point, s, r):
-        # large_ball_indices = self._tree.query_radius(X=point.reshape(1, -1), r=(1.000000000000001 * s))[0]
         large_ball_indices = self._tree.query_radius(X=point.reshape(1, -1), r=s)[0]
         small_ball_indices = self._tree.query_radius(X=point.reshape(1, -1), r=r)[0]
         annulus_indices = np.setdiff1d(ar1=large_ball_indices, ar2=small_ball_indices)

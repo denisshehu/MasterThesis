@@ -27,7 +27,6 @@ class Query:
 
         self._word = word
         self._word_type = word_type
-        # self._n_senses = len(wn.synsets(word)) if word is not None else None
 
     @property
     def identifier(self):
@@ -64,14 +63,6 @@ class Query:
     @classification.setter
     def classification(self, classification):
         self._classification = classification
-
-    # @property
-    # def euclidicity_estimates(self):
-    #     return self._euclidicity_estimates
-
-    # @euclidicity_estimates.setter
-    # def euclidicity_estimates(self, euclidicity_estimates):
-    #     self._euclidicity_estimates = euclidicity_estimates
 
     @property
     def euclidicity(self):
@@ -120,10 +111,6 @@ class Query:
     @property
     def word_type(self):
         return self._word_type
-
-    # @property
-    # def n_senses(self):
-    #     return self._n_senses
 
     def process_intrinsic_dimension_estimates(self, initial_intrinsic_dimension_estimates):
         self._initial_intrinsic_dimension_estimates = initial_intrinsic_dimension_estimates

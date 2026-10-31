@@ -6,10 +6,6 @@ def load_xml(file_path):
     return element_tree
 
 
-# def save_bin(data, file_path):
-#     data.save_word2vec_format(file_path, binary=True)
-
-
 def load_embeddings(file_path):
     if file_path == fasttext_embeddings_path:
         embeddings = FastText.load_fasttext_format(file_path).wv
@@ -61,12 +57,3 @@ def save_csv(data, file_path):
 def load_csv(file_path):
     data = pd.read_csv(file_path)
     return data
-
-
-# def save_point_cloud(point_cloud, filename_prefix):
-#     filename_prefix = f'{filename_prefix}_' if filename_prefix is not None else ''
-#     point_cloud_path = os.path.join(results_directory, f'{filename_prefix}point_cloud.yaml')
-#     save_yaml(point_cloud, point_cloud_path)
-
-# def load_words():
-#     return np.loadtxt(os.path.join(project_directory, 'words.txt'), dtype=str).tolist()

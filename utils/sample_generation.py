@@ -96,31 +96,3 @@ def figure(n1, s1, r1, seed1, n2, s2, r2, seed2, proportion):
 
     points = np.row_stack((annulus1, annulus2))
     return points
-
-# def sample_from_pinched_torus(n, spacial_dimension, large_r, small_max_r, small_min_r, seed):
-#     data = []
-#
-#     np.random.seed(seed)
-#
-#     pi = np.pi
-#     omegas = np.random.uniform(low=0, high=(2 * pi), size=n)
-#     thetas = np.random.uniform(low=0, high=(2 * pi), size=n)
-#
-#     for i in range(n):
-#         u = omegas[i]
-#         v = thetas[i]
-#
-#         if u <= pi:
-#             r = small_max_r * (1 - u / pi) + small_min_r * u / pi
-#         else:
-#             r = small_min_r * (1 - (u - pi) / pi) + small_max_r * (u - pi) / pi
-#
-#         x = (large_r + r * np.cos(v)) * np.cos(u)
-#         y = (large_r + r * np.cos(v)) * np.sin(u)
-#         z = r * np.sin(v)
-#
-#         data.append(np.array([x, y, z]))
-#
-#     data = np.array(data)
-#     data = np.hstack((data, np.zeros(shape=(data.shape[0], spacial_dimension - data.shape[1]))))
-#     return data

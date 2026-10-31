@@ -309,7 +309,7 @@ def plot_line_plot(x, y1, y2=None, y3=None, y1_label=None, y2_label=None, y3_lab
         ax.plot(x, y3, ':o', color=red, linewidth=line_width, markersize=point_size, label=y3_label)
 
     if ax.get_legend_handles_labels()[1]:
-        ax.legend(fontsize=font_size)  # , framealpha=0.5)
+        ax.legend(fontsize=font_size)
 
     ax.set_xlabel(x_label, fontsize=font_size)
     ax.set_ylabel(y_label, fontsize=font_size)

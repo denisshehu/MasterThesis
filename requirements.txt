@@ -1,0 +1,14 @@
+gensim==4.4.0
+gudhi==3.13.0
+joblib==1.6.0
+matplotlib==3.11.2
+nltk==3.10.4
+numpy==1.26.4
+pandas==3.0.6
+POT==0.9.7.post1
+PyYAML==6.0.3
+ripser==0.6.15
+scikit-dimension==0.5.0
+scikit-learn==1.9.1
+scipy==1.17.1
+SciencePlots==2.2.2
